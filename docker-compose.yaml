@@ -11,7 +11,7 @@ services:
         limits:
           memory: 200m
     depends_on:
-      # - lint
+      - lint
       - unit-test
 
   lint:
@@ -19,11 +19,9 @@ services:
       context: .
       dockerfile: Dockerfile
       target: lint
-    # command: golangci-lint run ./...
 
   unit-test:
     build:
       context: .
       dockerfile: Dockerfile
       target: unit-test
-    # command: go test -v ./...

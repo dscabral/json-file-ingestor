@@ -1,6 +1,6 @@
 FROM golang:1.18 as base
 ENV CGO_ENABLED=0
-WORKDIR /opt/app
+WORKDIR /app
 COPY go.mod .
 COPY go.sum .
 RUN go mod download

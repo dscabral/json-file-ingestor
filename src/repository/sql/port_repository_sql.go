@@ -55,13 +55,10 @@ func (r *PortRepository) InsertOrUpdatePort(port domain.Port) error {
 	}
 	defer stmt.Close()
 
-	// aliasArray := pq.Array(port.Alias)
-	// regionsArray := pq.Array(port.Regions)
 	coordinates := make([]string, len(port.Coordinates))
 	for i, coord := range port.Coordinates {
 		coordinates[i] = fmt.Sprintf("%f", coord)
 	}
-	// coordinatesArray := pq.Array(coordinates)
 
 	_, err = stmt.Exec(port.ID, port.Name, port.City, port.Country, pq.Array(port.Alias), pq.Array(port.Regions), pq.Array(coordinates), port.Province, port.Timezone, pq.Array(port.Unlocs), port.Code)
 	if err != nil {
