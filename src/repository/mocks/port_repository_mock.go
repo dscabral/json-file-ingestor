@@ -1,7 +1,7 @@
 package mocks
 
 import (
-	"github.com/dscabral/ports/domain"
+	"github.com/dscabral/ports/src/domain"
 )
 
 type MockPortRepository struct {

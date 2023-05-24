@@ -5,10 +5,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dscabral/ports/domain"
-	"github.com/dscabral/ports/repository/mocks"
-	"github.com/dscabral/ports/service"
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/dscabral/ports/src/domain"
+	"github.com/dscabral/ports/src/repository/mocks"
+	"github.com/dscabral/ports/src/service"
+	_ "modernc.org/sqlite"
 )
 
 const (
@@ -40,6 +40,7 @@ func TestSaveOrUpdatePortFromFile(t *testing.T) {
 			},
 			err: "",
 		},
+		// TODO create more test cases
 	}
 
 	for _, tc := range testCases {

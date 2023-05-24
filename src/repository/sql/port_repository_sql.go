@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/dscabral/ports/domain"
+	"github.com/dscabral/ports/src/domain"
 	"github.com/lib/pq"
 )
 
@@ -13,7 +13,7 @@ type PortRepository struct {
 }
 
 func NewPortRepository(dbFile string) *PortRepository {
-	db, err := sql.Open("sqlite3", dbFile)
+	db, err := sql.Open("sqlite", dbFile)
 	if err != nil {
 		panic(err)
 	}

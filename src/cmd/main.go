@@ -7,9 +7,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	repository "github.com/dscabral/ports/repository/sql"
-	"github.com/dscabral/ports/service"
-	_ "github.com/mattn/go-sqlite3"
+	repository "github.com/dscabral/ports/src/repository/sql"
+	"github.com/dscabral/ports/src/service"
+	_ "modernc.org/sqlite"
 )
 
 // type Port struct {

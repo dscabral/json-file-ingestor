@@ -7,23 +7,20 @@ import (
 	"log"
 	"os"
 
-	"github.com/dscabral/ports/domain"
-	"github.com/dscabral/ports/repository"
+	"github.com/dscabral/ports/src/domain"
+	"github.com/dscabral/ports/src/repository"
 )
 
-// PortService provides methods for handling port data
 type PortService struct {
 	PortRepository repository.PortRepository
 }
 
-// NewPortService creates a new instance of PortService
 func NewPortService(portRepository repository.PortRepository) *PortService {
 	return &PortService{
 		PortRepository: portRepository,
 	}
 }
 
-// SaveOrUpdatePortFromFile reads a JSON file containing port data and saves or updates the ports in the database
 func (s *PortService) SaveOrUpdatePortFromFile(filePath string) error {
 	file, err := os.Open(filePath)
 	if err != nil {
