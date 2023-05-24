@@ -4,3 +4,26 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - ./src/cmd/ports.json:/ports.json
+    deploy:
+      resources:
+        limits:
+          memory: 200m
+    depends_on:
+      # - lint
+      - unit-test
+
+  lint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: lint
+    # command: golangci-lint run ./...
+
+  unit-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: unit-test
+    # command: go test -v ./...

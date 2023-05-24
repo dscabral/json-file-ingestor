@@ -11,10 +11,6 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-const (
-	DBFile = "ports_test.db"
-)
-
 func TestSaveOrUpdatePortFromFile(t *testing.T) {
 	testCases := []struct {
 		name string
